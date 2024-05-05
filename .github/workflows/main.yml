@@ -42,17 +42,18 @@ jobs:
       - name: Create Dockerrun.aws.json file
         run: |
           echo '{
-            "AWSEBDockerrunVersion": "1",
-            "Image": {
-                "Name": "'$${{ steps.build-image.outputs.ECR_REGISTRY }}/$${{ steps.build-image.outputs.ECR_REPOSITORY }}:$${{ steps.build-image.outputs.IMAGE_TAG }}",
-                "Update": "true"
-            },
-            "Ports": [
-                {
-                    "ContainerPort": "8000"
-                }
-            ]
-           }' > Dockerrun.aws.json
+                "AWSEBDockerrunVersion": "1",
+                "Image": {
+                    "Name": "'$'${{ steps.build-image.outputs.ECR_REGISTRY }}/$'${{ steps.build-image.outputs.ECR_REPOSITORY }}:$'${{ steps.build-image.outputs.IMAGE_TAG }}",
+                    "Update": "true"
+                },
+                "Ports": [
+                    {
+                        "ContainerPort": "8000"
+                    }
+                ]
+            }' > Dockerrun.aws.json
+        
         
 
       # Step 5: Deploy to AWS Elastic Beanstalk
