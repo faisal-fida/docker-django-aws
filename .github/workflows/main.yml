@@ -44,7 +44,7 @@ jobs:
           pip install awsebcli --upgrade --user
           eb init -p docker $ECR_REPOSITORY --region ${{ secrets.AWS_REGION }}
           echo "ECR_REPOSITORY: $ECR_REPOSITORY"
-          eb create --single --timeout 20 --instance-types t2.micro
+          eb create docker-django-aws-dev --single --timeout 20 --instance-types t2.micro
           eb deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
