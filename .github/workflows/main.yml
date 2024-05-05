@@ -43,7 +43,7 @@ jobs:
                 container-name: django-app
                 image: ${{ steps.build-image.outputs.image }}
 
-            - name: Deploys Amazon ECS task definition
+            - name: Deploy Amazon ECS task definition
               uses: aws-actions/amazon-ecs-deploy-task-definition@v1
               with:
                 task-definition: .github/workflows/task-definition.json
