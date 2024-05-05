@@ -1,0 +1,18 @@
+{
+  "family": "django-app",
+  "containerDefinitions": [
+    {
+      "name": "django-app",
+      "image": "PLACEHOLDER",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000
+        }
+      ],
+      "memory": 500,
+      "cpu": 256
+    }
+  ]
+}
