@@ -3,7 +3,7 @@ name: Django Continuous Deployment
 on:
     push:
         branches:
-            - main
+            - deploy
 
 jobs:
     deploy:
