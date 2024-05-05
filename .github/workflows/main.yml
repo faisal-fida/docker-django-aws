@@ -41,13 +41,10 @@ jobs:
       # Step 5: Deploy to AWS Elastic Beanstalk
       - name: Deploy to AWS Elastic Beanstalk
         run: |
-          # Install AWS Elastic Beanstalk CLI
           pip install awsebcli --upgrade --user
-          # Initialize Elastic Beanstalk project with Docker platform
           eb init -p docker $ECR_REPOSITORY --region ${{ secrets.AWS_REGION }}
-          # Create an environment with a single instance (adjust instance type as needed)
-          eb create $ECR_REPOSITORY-env --single --timeout 20 --instance-types t2.micro
-          # Deploy the application to Elastic Beanstalk
+          echo "ECR_REPOSITORY: $ECR_REPOSITORY"
+          eb create --env-name $ECR_REPOSITORY-env --single --timeout 20 --instance-types t2.micro
           eb deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
