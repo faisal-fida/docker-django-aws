@@ -1,1 +1,4 @@
 /db.sqlite3
+*/__pycache__
+demo/__pycache__/*
+newss/__pycache__/*
